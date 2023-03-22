@@ -3,6 +3,8 @@ import {
    Meta,
    Links,
    Outlet,
+   Scripts,
+   LiveReload,
 } from '@remix-run/react'
 
 
@@ -73,6 +75,9 @@ function Document({children}) {
          <body>
             <Header />
             { children }
+
+            <Scripts />
+            <LiveReload />
          </body>
       </html>
    )
