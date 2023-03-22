@@ -1,5 +1,30 @@
 import imagenNosotros from '../../public/img/nosotros.jpg'
 
+import styles from '../styles/nosotros.css'
+
+export function meta() {
+  return (
+    {      
+      title: 'GuitarLA - Nosotros',
+      description: 'Venta de guitarras, blog de música y cursos' 
+    }     
+  )
+}
+
+export function links() {
+  return [
+    {
+      rel: 'stylesheet',
+      href: styles
+    },
+    {
+      rel: 'preload',
+      href: imagenNosotros,
+      as: 'image'
+    }
+  ]
+}
+
 function Nosotros() {
   return (
     <main className="contenedor nosotros">
