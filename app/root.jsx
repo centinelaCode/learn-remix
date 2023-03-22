@@ -2,10 +2,13 @@
 import {
    Meta,
    Links,
+   Outlet,
 } from '@remix-run/react'
+
 
 //?   Importacion de archivos propios
 import styles from './styles/index.css';
+
 
 //?   Carga de Etiquetas META 
 export function meta() {
@@ -17,6 +20,7 @@ export function meta() {
       }   
    )
 }
+
 
 //?   Carga de Etiquetas LINK (stylesheet, preconect)
 export function links() {
@@ -45,14 +49,16 @@ export function links() {
    ]
 }
 
+
 //?   Funcion que carga el contenido
 export default function App() {
    return(
       <Document>
-         <h1>Hola Remix</h1>
+         <Outlet />
       </Document>
    )
 }
+
 
 //?   Funcion con la estructura HTML
 function Document({children}) {
