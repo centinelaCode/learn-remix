@@ -1,20 +1,34 @@
 import { useLoaderData } from '@remix-run/react'
+
 import { getGuitarras } from '~/models/guitarras.server';
 import Guitarra from '~/components/guitarra'
-
-export async function loader() {
-  // ==== forma de hacer una petición a una api ====
-  // const respuesta = await fetch(`${process.env.API_URL}/guitarras?populate=imagen`);
-  // const resultado = await respuesta.json();
+import styles from '~/styles/guitarras.css'
 
 
-  // ==== Otra forma de hacer una petición a una api ====
-  const guitarras = await getGuitarras();
-  // console.log(guitarras) // solo se muestran en la consola del servidor
-  
-  return guitarras.data;
+export function meta() {
+  return (
+    {      
+      title: 'GuitarLA - Tienda de Guitarras',
+      description: 'Nuestra colección de guitarras' 
+    }     
+  )
 }
 
+
+export function links() {
+  return [
+    {
+      rel: 'stylesheet',
+      href: styles
+    }
+  ]
+}
+
+
+export async function loader() {
+  const guitarras = await getGuitarras();
+  return guitarras.data;
+}
 
 
 function Tienda() {
@@ -23,7 +37,6 @@ function Tienda() {
   const guitarras = useLoaderData();
   // console.log(guitarras)
   
-
    return (
      <main className="contenedor">
       <h2 className="heading">Nuestra Colección</h2>
