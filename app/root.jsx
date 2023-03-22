@@ -11,6 +11,7 @@ import {
 //?   Importacion de archivos propios
 import styles from '~/styles/index.css'
 import Header from '~/components/header'
+import Footer from '~/components/footer'
 
 
 //?   Carga de Etiquetas META 
@@ -75,6 +76,7 @@ function Document({children}) {
          <body>
             <Header />
             { children }
+            <Footer />
 
             <Scripts />
             <LiveReload />
