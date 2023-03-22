@@ -1,4 +1,6 @@
-import { getGuitarras } from '../models/guitarras.server';
+import { useLoaderData } from '@remix-run/react'
+import { getGuitarras } from '~/models/guitarras.server';
+import Guitarra from '~/components/guitarra'
 
 export async function loader() {
   // ==== forma de hacer una petición a una api ====
@@ -10,16 +12,35 @@ export async function loader() {
   const guitarras = await getGuitarras();
   // console.log(guitarras) // solo se muestran en la consola del servidor
   
-  return guitarras;
+  return guitarras.data;
 }
 
 
 
 function Tienda() {
+
+  //obtenemos las guitarras
+  const guitarras = useLoaderData();
+  // console.log(guitarras)
   
 
    return (
-     <div>Tienda</div>
+     <main className="contenedor">
+      <h2 className="heading">Nuestra Colección</h2>
+
+      { guitarras.length && (
+        <div className="guitarras-grid">
+          {guitarras.map(guitarra => (
+            <Guitarra 
+              key={guitarra?.id}
+              guitarra={guitarra?.attributes}
+
+            />
+          ))}
+        </div>
+      )}
+
+     </main>
    )
  }
  
