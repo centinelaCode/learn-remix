@@ -7,7 +7,8 @@ import {
 
 
 //?   Importacion de archivos propios
-import styles from './styles/index.css';
+import styles from '~/styles/index.css'
+import Header from '~/components/header'
 
 
 //?   Carga de Etiquetas META 
@@ -70,6 +71,7 @@ function Document({children}) {
          </head>
 
          <body>
+            <Header />
             { children }
          </body>
       </html>
