@@ -3,7 +3,34 @@ import { useLoaderData } from '@remix-run/react'
 import { getGuitarraUrl } from '~/models/guitarras.server';
 import styles from '~/styles/guitarras.css'
 
+
+export async function loader({params}) {
+   // obtenemos el params de la url
+   const { guitarraUrl } = params;
+   const guitarra = await getGuitarraUrl(guitarraUrl);
+
+   if(guitarra.data.length === 0) {
+      throw new Response('', {
+         status: 404,
+         statusText: 'Guitarra no encontrada'
+      })
+   }
+
+   console.log(guitarra)
+
+   return guitarra
+}
+
+
 export function meta({data}) {
+
+   if(!data) {
+      return {
+         title: 'GuitarLA - Guitarra no encontrada',
+         description: `Guitarras, venta de guitarras, guitarra no encontrada`
+      }
+   }
+   
    return (
       {      
         title: `GuitarLA - ${data.data[0].attributes.nombre}`,
@@ -11,6 +38,7 @@ export function meta({data}) {
       }     
     )
 }
+
 
 export function links() {
    return [
@@ -21,14 +49,6 @@ export function links() {
    ]
  }
  
-
-export async function loader({params}) {
-   // obtenemos el params de la url
-   const { guitarraUrl } = params;
-
-   const guitarra = await getGuitarraUrl(guitarraUrl);
-   return guitarra
-}
 
 function Guitarra() {
    // obtenemos los dato del loader
