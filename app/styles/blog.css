@@ -38,3 +38,19 @@
    -webkit-line-clamp: 4;
    overflow: hidden;
 }
+
+.contenido .fecha,
+.contenido .hora {
+   display: inline-block;
+   font-weight: 700;   
+}
+
+.contenido .fecha {
+   font-size: 1.5rem;
+   color: var(--primary);
+}
+
+.contenido .hora {
+   margin-left: 1rem;
+   font-size: 1.2rem;
+}
