@@ -3,7 +3,7 @@ import { Link } from '@remix-run/react'
 function Post({post}) {
 
    const {titulo, contenido, url, imagen, publishedAt} = post
-   console.log(post)
+   // console.log(post)
 
    return (
       <article className="post">
