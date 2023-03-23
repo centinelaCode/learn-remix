@@ -2,6 +2,7 @@ import { useLoaderData } from '@remix-run/react'
 
 import { getPosts } from '~/models/posts.server'
 import Post from '~/components/post'
+import styles from '~/styles/blog.css'
 
 export function meta() {
   return (
@@ -12,14 +13,14 @@ export function meta() {
   )
 }
 
-// export function links() {
-//   return [
-//     {
-//       rel: 'stylesheet',
-//       href: styles
-//     }
-//   ]
-// }
+export function links() {
+  return [
+    {
+      rel: 'stylesheet',
+      href: styles
+    }
+  ]
+}
 
 
 export async function loader() {
