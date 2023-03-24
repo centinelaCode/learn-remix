@@ -7,8 +7,8 @@ import styles from '~/styles/blog.css'
 export function meta() {
   return (
     {      
-      title: 'GuitarLA - Blog',
-      description: 'Bienvenido a nuestro Blog de Guitarras' 
+      title: 'GuitarLA - Nuestro Blog',
+      description: 'GuitarLA , Blog de música y venta de guitarras' 
     }     
   )
 }
