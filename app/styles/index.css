@@ -38,7 +38,7 @@
  /*** Header ***/
  .header {
   background-image: linear-gradient(to right, rgb(0 0 0 / .8), rgb(0 0 0 /.7)), url(/img/header.jpg);
-  padding: 6rem;
+  padding: 3rem;
   background-size: cover;
   background-position: center center;
 }
@@ -98,7 +98,7 @@
  /*** Footer ***/
  .footer {
   background-color: var(--black);
-  padding: 5rem;
+  padding: 1rem;
   margin-top: 5rem;
 }
 
