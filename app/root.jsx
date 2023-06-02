@@ -58,9 +58,15 @@ export function links() {
 
 //?   Funcion que carga el contenido
 export default function App() {
+
    return(
       <Document>
-         <Outlet />
+         <Outlet 
+            context={{
+               
+               
+            }}
+         />
       </Document>
    )
 }

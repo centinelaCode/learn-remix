@@ -32,7 +32,6 @@ export async function loader() {
 
 
 function Tienda() {
-
   //obtenemos las guitarras
   const guitarras = useLoaderData();
   // console.log(guitarras)

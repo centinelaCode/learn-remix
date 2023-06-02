@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useLoaderData } from '@remix-run/react'
+import { useLoaderData, useOutletContext } from '@remix-run/react'
 
 import { getGuitarraUrl } from '~/models/guitarras.server';
 import styles from '~/styles/guitarras.css'
@@ -53,10 +53,12 @@ export function links() {
 
 function Guitarra() {
 
+   // context
+   const data = useOutletContext();
+   console.log(data)
+
    // state shoopin-car
    const [cantidad, setCantidad] = useState(0);
-
-
 
    // obtenemos los dato del loader
    const guitarra = useLoaderData();
@@ -81,12 +83,12 @@ function Guitarra() {
          cantidad
       }
 
-      console.log(guitarraSeleccionada)
+      console.log(guitarraSeleccionada)  
    }
 
    return (
       <main className="contendor guitarra">
-         <img className='imagen' src={imagen.data.attributes.url} alt={`Imagen de la guitarra ${nombre}`} />
+         <img className='imagen' src={imagen.data.attributes.url} alt={`Imagen de la guitarra ${nombre}`} />         
 
          <div className="contenido">
             <h3>{nombre}</h3>
