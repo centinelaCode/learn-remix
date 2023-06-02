@@ -54,8 +54,7 @@ export function links() {
 function Guitarra() {
 
    // context
-   const data = useOutletContext();
-   console.log(data)
+   const { agregarCarrito } = useOutletContext();  
 
    // state shoopin-car
    const [cantidad, setCantidad] = useState(0);
@@ -83,7 +82,7 @@ function Guitarra() {
          cantidad
       }
 
-      console.log(guitarraSeleccionada)  
+      agregarCarrito(guitarraSeleccionada);      
    }
 
    return (

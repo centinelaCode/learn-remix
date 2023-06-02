@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 //?   Importación de componente de REMIX
 import {
    Meta,
@@ -59,12 +61,18 @@ export function links() {
 //?   Funcion que carga el contenido
 export default function App() {
 
+   // state del carrito
+   const [carrito, setCarrito] = useState([])
+
+   const agregarCarrito = guitarra => {
+      setCarrito([...carrito, guitarra])
+   }
+
    return(
       <Document>
          <Outlet 
             context={{
-               
-               
+               agregarCarrito               
             }}
          />
       </Document>
