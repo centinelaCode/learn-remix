@@ -1,0 +1,24 @@
+.contenido {
+   display: grid;
+   gap: 5rem;
+
+}
+
+@media (min-width: 768px) {
+   .contenido {
+      grid-template-columns: 3fr 2fr;
+
+   }
+}
+
+.carrito {
+   padding: 2rem;
+}
+
+.resumen {
+   background-color: #e2e8f0;
+   /* background-color: #F9FA; */
+
+   padding: 3rem;
+   border-radius: 1rem;
+}
