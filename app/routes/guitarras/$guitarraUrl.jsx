@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { useLoaderData } from '@remix-run/react'
 
 import { getGuitarraUrl } from '~/models/guitarras.server';
@@ -51,6 +52,12 @@ export function links() {
  
 
 function Guitarra() {
+
+   // state shoopin-car
+   const [cantidad, setCantidad] = useState(0);
+
+
+
    // obtenemos los dato del loader
    const guitarra = useLoaderData();
    // console.log(guitarra.data[0].attributes)
@@ -68,7 +75,10 @@ function Guitarra() {
 
             <form className='formulario'>
                <label htmlFor='cantidad'>Cantidad</label>
-               <select id='cantidad'>
+               <select 
+                  onChange={ e => setCantidad(+e.target.value)}
+                  id='cantidad'
+               >
                   <option value="">-- Seleccione --</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
